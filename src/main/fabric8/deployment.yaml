@@ -1,0 +1,21 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      volumes:
+        - name: config
+          gitRepo:
+            repository: 'https://github.com/softjake/vtx-proto-one.git'
+            revision: de1042bb35c64b65aca2554405f9f37d0575f112
+            directory: .
+      containers:
+        - volumeMounts:
+            - name: config
+              mountPath: /app/config
+          env:
+            - name: default
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+      serviceAccount: ribbon
