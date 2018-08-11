@@ -3,7 +3,7 @@ LABEL maintainer=jake
 LABEL project=${projectArtifact}
 LABEL version=${projectVersion}
 
-ENV VERTICLE_NAME ${vertx.main-verticle}
+ENV VERTICLE_NAME ${vertx.verticle}
 ENV VERTICLE_HOME /deployments/${projectArtifact}
 COPY /maven /$VERTICLE_HOME/
 
